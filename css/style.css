@@ -8,8 +8,8 @@
   --card: #1b2029;
   --text: #e8eaf0;
   --text-muted: #9aa3b2;
-  --accent: #5eead4;
-  --accent-strong: #2dd4bf;
+  --accent: #ffdf80;         /* Real Madrid gold */
+  --accent-strong: #ffdf80;
   --border: #2a3140;
   --max-width: 900px;
 }
@@ -21,8 +21,8 @@
     --card: #ffffff;
     --text: #1a1d23;
     --text-muted: #5c6470;
-    --accent: #0d9488;
-    --accent-strong: #0f766e;
+    --accent: #8a6d1a;         /* darker gold: #ffdf80 is unreadable as text on white */
+    --accent-strong: #ffdf80;
     --border: #e2e5ea;
   }
 }
@@ -160,7 +160,7 @@ a { color: var(--accent); }
 
 .btn:hover { transform: translateY(-1px); opacity: 0.9; }
 
-.btn-primary { background: var(--accent-strong); color: #06211d; }
+.btn-primary { background: var(--accent-strong); color: #211a06; }
 .btn-outline { border-color: var(--border); color: var(--text); }
 
 /* ---------- Cards ---------- */
