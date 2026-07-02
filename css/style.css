@@ -21,7 +21,7 @@
     --card: #ffffff;
     --text: #1a1d23;
     --text-muted: #5c6470;
-    --accent: #8a6d1a;         /* darker gold: #ffdf80 is unreadable as text on white */
+    --accent: #b8860b;         /* darker gold: #ffdf80 is unreadable as text on white */
     --accent-strong: #ffdf80;
     --border: #e2e5ea;
   }
