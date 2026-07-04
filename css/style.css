@@ -1,7 +1,8 @@
 /* ============================================
-   Personal site — "Bernabéu × Champions League" theme
-   Dark: midnight navy, brushed steel, LED gold + electric blue.
+   Personal site — "Champions League" theme
+   Dark: midnight navy, brushed steel, electric-blue LEDs.
    Light: shiny silver-blue metallic.
+   Nav bar: deep UCL-blue gradient in both themes.
    Toggled via data-theme on <html>; default dark.
    ============================================ */
 
@@ -11,10 +12,10 @@
   --card: rgba(20, 26, 44, 0.72);
   --text: #eef0f5;
   --text-muted: #9aa8c0;
-  --accent: #ffdf80;                          /* Real Madrid gold */
-  --accent-glow: rgba(255, 223, 128, 0.35);
-  --accent2: #6ea8ff;                         /* UCL electric blue */
-  --accent2-glow: rgba(110, 168, 255, 0.35);
+  --accent: #6ea8ff;                          /* UCL electric blue */
+  --accent-glow: rgba(110, 168, 255, 0.35);
+  --accent2: #38bdf8;                         /* starball cyan */
+  --accent2-glow: rgba(56, 189, 248, 0.35);
   --border: rgba(255, 255, 255, 0.08);
   --timeline: rgba(255, 255, 255, 0.14);
   --sheen: rgba(255, 255, 255, 0.35);
@@ -23,18 +24,24 @@
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
+  /* nav bar is UCL-logo blue in both themes, so its text is fixed */
+  --nav-text: #f2f6ff;
+  --nav-text-muted: #b9c8e8;
+  --nav-accent: #9ac8ff;
+  --nav-accent-glow: rgba(154, 200, 255, 0.45);
+  --nav-bg: linear-gradient(120deg, rgba(6, 16, 56, 0.96), rgba(14, 42, 118, 0.92) 55%, rgba(23, 64, 168, 0.88));
+
   --page-bg:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 223, 128, 0.07), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(110, 168, 255, 0.09), transparent 60%),
     radial-gradient(ellipse 70% 45% at 88% 108%, rgba(64, 110, 220, 0.14), transparent 62%),
-    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(110, 168, 255, 0.06), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(56, 189, 248, 0.06), transparent 60%),
     repeating-linear-gradient(180deg,
       transparent 0px, transparent 5px,
       rgba(255, 255, 255, 0.012) 5px, rgba(255, 255, 255, 0.012) 6px);
-  --nav-bg: linear-gradient(180deg, rgba(28, 35, 58, 0.92), rgba(9, 12, 24, 0.88));
   --footer-bg: linear-gradient(180deg, rgba(18, 23, 40, 0.6), rgba(7, 11, 24, 0.9));
   --hero-grad: linear-gradient(100deg, #f3f5f9 10%, #a9c2ee 45%, var(--accent) 88%);
-  --hero-orb: rgba(255, 223, 128, 0.12);
-  --hero-orb2: rgba(110, 168, 255, 0.10);
+  --hero-orb: rgba(110, 168, 255, 0.12);
+  --hero-orb2: rgba(56, 189, 248, 0.10);
 }
 
 html[data-theme="light"] {
@@ -43,27 +50,28 @@ html[data-theme="light"] {
   --card: rgba(255, 255, 255, 0.78);
   --text: #101a30;
   --text-muted: #4b5872;
-  --accent: #a3800a;                          /* readable gold on silver */
-  --accent-glow: rgba(163, 128, 10, 0.30);
-  --accent2: #2563eb;
-  --accent2-glow: rgba(37, 99, 235, 0.30);
+  --accent: #1d4ed8;                          /* royal blue, readable on silver */
+  --accent-glow: rgba(29, 78, 216, 0.30);
+  --accent2: #0284c7;
+  --accent2-glow: rgba(2, 132, 199, 0.30);
   --border: rgba(16, 26, 48, 0.12);
   --timeline: rgba(16, 26, 48, 0.15);
   --sheen: rgba(255, 255, 255, 0.9);
   --hover-shadow: 0 12px 32px rgba(16, 26, 48, 0.16);
 
+  --nav-bg: linear-gradient(120deg, rgba(13, 32, 96, 0.95), rgba(26, 64, 160, 0.92) 55%, rgba(41, 92, 210, 0.88));
+
   --page-bg:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.10), transparent 60%),
     radial-gradient(ellipse 70% 45% at 88% 108%, rgba(120, 145, 190, 0.18), transparent 62%),
-    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(255, 223, 128, 0.14), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(2, 132, 199, 0.08), transparent 60%),
     repeating-linear-gradient(180deg,
       transparent 0px, transparent 5px,
       rgba(16, 26, 48, 0.015) 5px, rgba(16, 26, 48, 0.015) 6px);
-  --nav-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(228, 234, 244, 0.85));
   --footer-bg: linear-gradient(180deg, rgba(240, 243, 249, 0.7), rgba(220, 227, 240, 0.95));
-  --hero-grad: linear-gradient(100deg, #101a30 10%, #2563eb 50%, #a3800a 90%);
+  --hero-grad: linear-gradient(100deg, #101a30 10%, #1d4ed8 50%, #0284c7 90%);
   --hero-orb: rgba(37, 99, 235, 0.10);
-  --hero-orb2: rgba(255, 223, 128, 0.18);
+  --hero-orb2: rgba(2, 132, 199, 0.12);
 }
 
 * { box-sizing: border-box; }
@@ -79,7 +87,7 @@ body {
   background-image: var(--page-bg);
 }
 
-/* ---------- Top navigation bar ---------- */
+/* ---------- Top navigation bar (UCL-blue gradient) ---------- */
 
 .site-nav {
   position: sticky;
@@ -88,10 +96,10 @@ body {
   background: var(--nav-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    inset 0 1px 0 var(--sheen),
-    0 8px 24px rgba(0, 0, 0, 0.25);
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 24px rgba(4, 12, 44, 0.45);
 }
 
 .site-nav .nav-inner {
@@ -114,13 +122,13 @@ body {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--text);
+  color: var(--nav-text);
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.site-nav .brand span { color: var(--accent); }
+.site-nav .brand span { color: var(--nav-accent); }
 
 .site-nav ul {
   list-style: none;
@@ -135,7 +143,7 @@ body {
   display: block;
   padding: 0.5rem 0.9rem;
   border-radius: 8px;
-  color: var(--text-muted);
+  color: var(--nav-text-muted);
   text-decoration: none;
   font-size: 0.92rem;
   letter-spacing: 0.04em;
@@ -143,13 +151,13 @@ body {
 }
 
 .site-nav a.nav-link:hover {
-  color: var(--text);
-  background: color-mix(in srgb, var(--accent2) 12%, transparent);
+  color: var(--nav-text);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 /* LED strip under the active tab */
 .site-nav a.nav-link.active {
-  color: var(--accent);
+  color: var(--nav-accent);
   font-weight: 600;
 }
 
@@ -161,20 +169,20 @@ body {
   bottom: 2px;
   height: 2px;
   border-radius: 2px;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent-glow), 0 0 18px var(--accent-glow);
+  background: var(--nav-accent);
+  box-shadow: 0 0 8px var(--nav-accent-glow), 0 0 18px var(--nav-accent-glow);
 }
 
-/* ---------- Theme toggle ---------- */
+/* ---------- Theme toggle (lives on the blue nav) ---------- */
 
 .theme-toggle {
   width: 2.15rem;
   height: 2.15rem;
   margin-left: 0.35rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--nav-text);
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
@@ -185,8 +193,8 @@ body {
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent2);
-  box-shadow: 0 0 14px var(--accent2-glow);
+  border-color: var(--nav-accent);
+  box-shadow: 0 0 14px var(--nav-accent-glow);
   transform: translateY(-1px);
 }
 
@@ -212,7 +220,7 @@ h2 {
   gap: 0.75rem;
 }
 
-/* LED tick before each section heading — gold-to-blue strip */
+/* LED tick before each section heading — blue-to-cyan strip */
 h2::before {
   content: "";
   width: 26px;
@@ -239,7 +247,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   padding: 5rem 0 3rem;
 }
 
-/* Gold floodlight, drifting */
+/* Blue floodlight, drifting */
 .hero::before {
   content: "";
   position: absolute;
@@ -252,7 +260,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   animation: heroGlow 7s ease-in-out infinite alternate;
 }
 
-/* Electric-blue counterlight */
+/* Cyan counterlight */
 .hero::after {
   content: "";
   position: absolute;
@@ -284,7 +292,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   margin-bottom: 1rem;
 }
 
-/* Silver → blue → gold metallic name */
+/* Silver → steel-blue → electric-blue metallic name */
 .hero h1 {
   font-size: 3.6rem;
   background: var(--hero-grad);
@@ -321,10 +329,10 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 
 .btn:hover { transform: translateY(-2px); }
 
-/* Gold stays gold in both themes — it's the club color */
+/* Champions-blue primary button, same in both themes */
 .btn-primary {
-  background: linear-gradient(160deg, #ffe9a8, #ffdf80 60%, #e3b94f);
-  color: #241c05;
+  background: linear-gradient(160deg, #7db3ff, #3b76f6 55%, #1d4ed8);
+  color: #f5f9ff;
   box-shadow: 0 0 18px var(--accent-glow);
 }
 
