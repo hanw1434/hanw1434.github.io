@@ -432,6 +432,17 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   margin: 0.5rem 0 0;
 }
 
+/* ---------- Disclaimer ---------- */
+
+.disclaimer {
+  margin-top: 3.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+  letter-spacing: 0.02em;
+}
+
 /* ---------- Footer ---------- */
 
 footer {

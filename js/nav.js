@@ -5,8 +5,9 @@ const NAV_LINKS = [
   { label: "Home", href: "index.html" },
   { label: "About", href: "about.html" },
   { label: "Projects", href: "projects.html" },
-  { label: "Resume", href: "resume.html" },
   { label: "Substack", href: "substack.html" },
+  { label: "Teaching", href: "teaching.html" },
+  { label: "Resume", href: "resume.html" },
 ];
 
 (function renderNav() {
