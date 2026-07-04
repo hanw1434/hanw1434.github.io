@@ -1,23 +1,69 @@
 /* ============================================
-   Personal site — "Bernabéu" theme
-   Dark graphite, brushed-steel bands, LED gold.
-   Inspired by the renovated Santiago Bernabéu.
+   Personal site — "Bernabéu × Champions League" theme
+   Dark: midnight navy, brushed steel, LED gold + electric blue.
+   Light: shiny silver-blue metallic.
+   Toggled via data-theme on <html>; default dark.
    ============================================ */
 
 :root {
-  --bg: #08090c;
-  --bg-alt: #0d0f14;
-  --card: rgba(22, 25, 33, 0.72);
+  /* ----- dark (default) ----- */
+  --bg: #070b18;
+  --card: rgba(20, 26, 44, 0.72);
   --text: #eef0f5;
-  --text-muted: #9aa3b2;
-  --accent: #ffdf80;          /* Real Madrid gold */
+  --text-muted: #9aa8c0;
+  --accent: #ffdf80;                          /* Real Madrid gold */
   --accent-glow: rgba(255, 223, 128, 0.35);
-  --steel-hi: #3a4150;
-  --steel-lo: #14171e;
+  --accent2: #6ea8ff;                         /* UCL electric blue */
+  --accent2-glow: rgba(110, 168, 255, 0.35);
   --border: rgba(255, 255, 255, 0.08);
+  --timeline: rgba(255, 255, 255, 0.14);
+  --sheen: rgba(255, 255, 255, 0.35);
+  --hover-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   --max-width: 960px;
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --page-bg:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 223, 128, 0.07), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 88% 108%, rgba(64, 110, 220, 0.14), transparent 62%),
+    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(110, 168, 255, 0.06), transparent 60%),
+    repeating-linear-gradient(180deg,
+      transparent 0px, transparent 5px,
+      rgba(255, 255, 255, 0.012) 5px, rgba(255, 255, 255, 0.012) 6px);
+  --nav-bg: linear-gradient(180deg, rgba(28, 35, 58, 0.92), rgba(9, 12, 24, 0.88));
+  --footer-bg: linear-gradient(180deg, rgba(18, 23, 40, 0.6), rgba(7, 11, 24, 0.9));
+  --hero-grad: linear-gradient(100deg, #f3f5f9 10%, #a9c2ee 45%, var(--accent) 88%);
+  --hero-orb: rgba(255, 223, 128, 0.12);
+  --hero-orb2: rgba(110, 168, 255, 0.10);
+}
+
+html[data-theme="light"] {
+  /* ----- shiny silver-blue light mode ----- */
+  --bg: #eef1f7;
+  --card: rgba(255, 255, 255, 0.78);
+  --text: #101a30;
+  --text-muted: #4b5872;
+  --accent: #a3800a;                          /* readable gold on silver */
+  --accent-glow: rgba(163, 128, 10, 0.30);
+  --accent2: #2563eb;
+  --accent2-glow: rgba(37, 99, 235, 0.30);
+  --border: rgba(16, 26, 48, 0.12);
+  --timeline: rgba(16, 26, 48, 0.15);
+  --sheen: rgba(255, 255, 255, 0.9);
+  --hover-shadow: 0 12px 32px rgba(16, 26, 48, 0.16);
+
+  --page-bg:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.10), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 88% 108%, rgba(120, 145, 190, 0.18), transparent 62%),
+    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(255, 223, 128, 0.14), transparent 60%),
+    repeating-linear-gradient(180deg,
+      transparent 0px, transparent 5px,
+      rgba(16, 26, 48, 0.015) 5px, rgba(16, 26, 48, 0.015) 6px);
+  --nav-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(228, 234, 244, 0.85));
+  --footer-bg: linear-gradient(180deg, rgba(240, 243, 249, 0.7), rgba(220, 227, 240, 0.95));
+  --hero-grad: linear-gradient(100deg, #101a30 10%, #2563eb 50%, #a3800a 90%);
+  --hero-orb: rgba(37, 99, 235, 0.10);
+  --hero-orb2: rgba(255, 223, 128, 0.18);
 }
 
 * { box-sizing: border-box; }
@@ -27,21 +73,10 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  /* Brushed-steel horizontal banding, like the stadium's wrap-around façade */
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 223, 128, 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(120, 140, 180, 0.07), transparent 60%),
-    repeating-linear-gradient(
-      180deg,
-      transparent 0px,
-      transparent 5px,
-      rgba(255, 255, 255, 0.012) 5px,
-      rgba(255, 255, 255, 0.012) 6px
-    );
-  background-attachment: fixed;
+  background-image: var(--page-bg);
 }
 
 /* ---------- Top navigation bar ---------- */
@@ -50,17 +85,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(
-    180deg,
-    rgba(30, 34, 44, 0.92),
-    rgba(13, 15, 20, 0.88)
-  );
+  background: var(--nav-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),   /* metallic top edge */
-    0 8px 24px rgba(0, 0, 0, 0.45);
+    inset 0 1px 0 var(--sheen),
+    0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .site-nav .nav-inner {
@@ -71,6 +102,12 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 3.75rem;
+}
+
+.site-nav .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .site-nav .brand {
@@ -107,7 +144,7 @@ body {
 
 .site-nav a.nav-link:hover {
   color: var(--text);
-  background: rgba(255, 223, 128, 0.08);
+  background: color-mix(in srgb, var(--accent2) 12%, transparent);
 }
 
 /* LED strip under the active tab */
@@ -126,6 +163,31 @@ body {
   border-radius: 2px;
   background: var(--accent);
   box-shadow: 0 0 8px var(--accent-glow), 0 0 18px var(--accent-glow);
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  width: 2.15rem;
+  height: 2.15rem;
+  margin-left: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.12s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 0 14px var(--accent2-glow);
+  transform: translateY(-1px);
 }
 
 /* ---------- Layout ---------- */
@@ -150,13 +212,13 @@ h2 {
   gap: 0.75rem;
 }
 
-/* LED tick before each section heading */
+/* LED tick before each section heading — gold-to-blue strip */
 h2::before {
   content: "";
-  width: 22px;
+  width: 26px;
   height: 3px;
   border-radius: 2px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
   box-shadow: 0 0 10px var(--accent-glow);
   flex: none;
 }
@@ -164,7 +226,7 @@ h2::before {
 h3 { font-size: 1.12rem; margin: 1.5rem 0 0.5rem; }
 
 p { color: var(--text-muted); }
-p.lead { font-size: 1.18rem; color: #c4cad6; }
+p.lead { font-size: 1.18rem; color: color-mix(in srgb, var(--text) 78%, var(--text-muted)); }
 
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
@@ -177,7 +239,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   padding: 5rem 0 3rem;
 }
 
-/* Glowing pitch-light orb behind the hero */
+/* Gold floodlight, drifting */
 .hero::before {
   content: "";
   position: absolute;
@@ -185,18 +247,31 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   left: -15%;
   width: 55%;
   height: 120%;
-  background: radial-gradient(circle, rgba(255, 223, 128, 0.12), transparent 65%);
+  background: radial-gradient(circle, var(--hero-orb), transparent 65%);
   pointer-events: none;
   animation: heroGlow 7s ease-in-out infinite alternate;
 }
 
+/* Electric-blue counterlight */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20%;
+  width: 50%;
+  height: 110%;
+  background: radial-gradient(circle, var(--hero-orb2), transparent 65%);
+  pointer-events: none;
+  animation: heroGlow 9s ease-in-out infinite alternate-reverse;
+}
+
 @keyframes heroGlow {
-  from { opacity: 0.6; transform: translateX(0); }
-  to   { opacity: 1;   transform: translateX(12%); }
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before { animation: none; }
+  .hero::before, .hero::after { animation: none; }
 }
 
 .hero .greeting {
@@ -209,10 +284,10 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   margin-bottom: 1rem;
 }
 
-/* Silver-to-gold metallic gradient name */
+/* Silver → blue → gold metallic name */
 .hero h1 {
   font-size: 3.6rem;
-  background: linear-gradient(100deg, #f3f5f9 15%, #c9cfdb 40%, var(--accent) 85%);
+  background: var(--hero-grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -246,8 +321,9 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 
 .btn:hover { transform: translateY(-2px); }
 
+/* Gold stays gold in both themes — it's the club color */
 .btn-primary {
-  background: linear-gradient(160deg, #ffe9a8, var(--accent) 60%, #e3b94f);
+  background: linear-gradient(160deg, #ffe9a8, #ffdf80 60%, #e3b94f);
   color: #241c05;
   box-shadow: 0 0 18px var(--accent-glow);
 }
@@ -255,14 +331,14 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .btn-primary:hover { box-shadow: 0 0 30px var(--accent-glow); }
 
 .btn-outline {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: color-mix(in srgb, var(--text) 25%, transparent);
   color: var(--text);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sheen) 14%, transparent), transparent);
 }
 
 .btn-outline:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 14px var(--accent-glow);
+  border-color: var(--accent2);
+  box-shadow: 0 0 14px var(--accent2-glow);
 }
 
 /* ---------- Cards ---------- */
@@ -282,7 +358,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   padding: 1.5rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--sheen) 40%, transparent);
   transition: border-color 0.2s, transform 0.15s, box-shadow 0.25s;
   overflow: hidden;
 }
@@ -293,16 +369,16 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   position: absolute;
   top: 0; left: 8%; right: 8%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, var(--sheen), transparent);
 }
 
 .card:hover {
-  border-color: rgba(255, 223, 128, 0.55);
+  border-color: color-mix(in srgb, var(--accent2) 60%, transparent);
   transform: translateY(-3px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 12px 32px rgba(0, 0, 0, 0.5),
-    0 0 24px rgba(255, 223, 128, 0.12);
+    inset 0 1px 0 color-mix(in srgb, var(--sheen) 40%, transparent),
+    var(--hover-shadow),
+    0 0 24px var(--accent2-glow);
 }
 
 .card h3 { margin-top: 0; }
@@ -319,8 +395,8 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   font-size: 0.74rem;
   padding: 0.18rem 0.65rem;
   border-radius: 999px;
-  background: rgba(255, 223, 128, 0.1);
-  border: 1px solid rgba(255, 223, 128, 0.25);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   color: var(--accent);
   letter-spacing: 0.03em;
 }
@@ -330,7 +406,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .resume-section { margin-bottom: 2.5rem; }
 
 .resume-entry {
-  border-left: 2px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid var(--timeline);
   padding-left: 1.35rem;
   margin-bottom: 1.75rem;
   position: relative;
@@ -367,7 +443,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 
 footer {
   border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(20, 23, 30, 0.6), rgba(8, 9, 12, 0.9));
+  background: var(--footer-bg);
   padding: 2.25rem 1.25rem;
   text-align: center;
   color: var(--text-muted);
@@ -394,4 +470,5 @@ footer a:hover {
   .site-nav .nav-inner { padding: 0 0.75rem; }
   .site-nav a.nav-link { padding: 0.45rem 0.55rem; font-size: 0.85rem; }
   .site-nav .brand { font-size: 0.95rem; }
+  .theme-toggle { width: 2rem; height: 2rem; }
 }
