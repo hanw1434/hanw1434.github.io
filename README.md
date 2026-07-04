@@ -5,7 +5,7 @@ My personal website, hosted on GitHub Pages.
 ## Structure
 
 - `index.html` — home page
-- `about.html`, `projects.html`, `resume.html` — section pages
+- `about.html`, `projects.html`, `resume.html`, `substack.html` — section pages
 - `css/style.css` — all styling (colors are defined as CSS variables at the top)
 - `js/nav.js` — the shared top navigation bar
 

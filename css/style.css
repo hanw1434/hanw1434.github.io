@@ -8,7 +8,7 @@
 
 :root {
   /* ----- dark (default) ----- */
-  --bg: #070b18;
+  --bg: #0a1636;   /* solid deep navy, same family as the nav bar */
   --card: rgba(20, 26, 44, 0.72);
   --text: #eef0f5;
   --text-muted: #9aa8c0;
@@ -31,13 +31,6 @@
   --nav-accent-glow: rgba(154, 200, 255, 0.45);
   --nav-bg: linear-gradient(120deg, rgba(6, 16, 56, 0.96), rgba(14, 42, 118, 0.92) 55%, rgba(23, 64, 168, 0.88));
 
-  --page-bg:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(110, 168, 255, 0.09), transparent 60%),
-    radial-gradient(ellipse 70% 45% at 88% 108%, rgba(64, 110, 220, 0.14), transparent 62%),
-    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(56, 189, 248, 0.06), transparent 60%),
-    repeating-linear-gradient(180deg,
-      transparent 0px, transparent 5px,
-      rgba(255, 255, 255, 0.012) 5px, rgba(255, 255, 255, 0.012) 6px);
   --footer-bg: linear-gradient(180deg, rgba(18, 23, 40, 0.6), rgba(7, 11, 24, 0.9));
   --hero-grad: linear-gradient(100deg, #f3f5f9 10%, #a9c2ee 45%, var(--accent) 88%);
   --hero-orb: rgba(110, 168, 255, 0.12);
@@ -45,8 +38,8 @@
 }
 
 html[data-theme="light"] {
-  /* ----- shiny silver-blue light mode ----- */
-  --bg: #eef1f7;
+  /* ----- light mode: solid light blue, echoing the nav bar ----- */
+  --bg: #d9e5f8;
   --card: rgba(255, 255, 255, 0.78);
   --text: #101a30;
   --text-muted: #4b5872;
@@ -61,14 +54,7 @@ html[data-theme="light"] {
 
   --nav-bg: linear-gradient(120deg, rgba(13, 32, 96, 0.95), rgba(26, 64, 160, 0.92) 55%, rgba(41, 92, 210, 0.88));
 
-  --page-bg:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.10), transparent 60%),
-    radial-gradient(ellipse 70% 45% at 88% 108%, rgba(120, 145, 190, 0.18), transparent 62%),
-    radial-gradient(ellipse 45% 35% at 5% 65%, rgba(2, 132, 199, 0.08), transparent 60%),
-    repeating-linear-gradient(180deg,
-      transparent 0px, transparent 5px,
-      rgba(16, 26, 48, 0.015) 5px, rgba(16, 26, 48, 0.015) 6px);
-  --footer-bg: linear-gradient(180deg, rgba(240, 243, 249, 0.7), rgba(220, 227, 240, 0.95));
+  --footer-bg: linear-gradient(180deg, rgba(222, 232, 248, 0.7), rgba(205, 219, 242, 0.95));
   --hero-grad: linear-gradient(100deg, #101a30 10%, #1d4ed8 50%, #0284c7 90%);
   --hero-orb: rgba(37, 99, 235, 0.10);
   --hero-orb2: rgba(2, 132, 199, 0.12);
@@ -84,7 +70,6 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  background-image: var(--page-bg);
 }
 
 /* ---------- Top navigation bar (UCL-blue gradient) ---------- */
