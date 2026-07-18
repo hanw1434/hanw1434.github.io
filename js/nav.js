@@ -6,7 +6,6 @@ const NAV_LINKS = [
   { label: "About", href: "about.html" },
   { label: "Projects", href: "projects.html" },
   { label: "Substack", href: "substack.html" },
-  { label: "Teaching", href: "teaching.html" },
   { label: "Resume", href: "resume.html" },
 ];
 
