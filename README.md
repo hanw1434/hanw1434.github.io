@@ -4,17 +4,17 @@ My personal website, hosted on GitHub Pages.
 
 ## Structure
 
-- `index.html` — home page
-- `about.html`, `projects.html`, `resume.html`, `substack.html` — section pages
-- `css/style.css` — all styling (colors are defined as CSS variables at the top)
-- `js/nav.js` — the shared top navigation bar
+- `index.html` — the whole site: one page with Home, About, Education, Projects, Hobbies, and Contact sections
+- `css/style.css` — all styling (light/dark colors are CSS variables at the top)
+- `js/nav.js` — theme toggle and nav highlighting for the section in view
+- `about.html`, `projects.html`, `resume.html`, `substack.html` — redirects to the matching section, so old links still work
 
 ## Adding a new section
 
-1. Copy an existing page (e.g. `about.html`) to `newsection.html` and replace the `<main>` content.
-2. Add one line to the `NAV_LINKS` array in `js/nav.js`:
-   ```js
-   { label: "New Section", href: "newsection.html" },
+1. Add a `<section id="newsection" class="section">` to `index.html` (copy an existing one).
+2. Add a matching link to the nav in `index.html`:
+   ```html
+   <li><a class="nav-link" href="#newsection">New Section</a></li>
    ```
 3. Commit and push — GitHub Pages redeploys automatically.
 
