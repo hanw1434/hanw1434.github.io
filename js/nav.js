@@ -1,50 +1,57 @@
-// Shared navigation bar + theme toggle.
-// To add a new section to the site: add an entry here and create the
-// matching HTML page (copy an existing one and swap out the <main> content).
-const NAV_LINKS = [
-  { label: "Home", href: "index.html" },
-  { label: "About", href: "about.html" },
-  { label: "Projects", href: "projects.html" },
-  { label: "Substack", href: "substack.html" },
-  { label: "Resume", href: "resume.html" },
-];
+// Theme toggle + scroll-spy for the single-page nav.
+// To add a new section: add a <section id="..."> to index.html and a
+// matching <li><a class="nav-link" href="#..."> to the nav.
 
-(function renderNav() {
-  const current = location.pathname.split("/").pop() || "index.html";
-
-  const nav = document.createElement("nav");
-  nav.className = "site-nav";
-  nav.innerHTML = `
-    <div class="nav-inner">
-      <a class="brand" href="index.html">Han<span>&nbsp;Wu</span></a>
-      <div class="nav-right">
-        <ul>
-          ${NAV_LINKS.map(
-            (l) => `
-            <li>
-              <a class="nav-link${l.href === current ? " active" : ""}" href="${l.href}">
-                ${l.label}
-              </a>
-            </li>`
-          ).join("")}
-        </ul>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark/light mode"></button>
-      </div>
-    </div>`;
-
-  document.body.prepend(nav);
-
+(function () {
   // --- theme toggle ---
-  const btn = nav.querySelector(".theme-toggle");
-  const icon = () =>
-    (btn.textContent = document.documentElement.dataset.theme === "light" ? "☾" : "☀");
+  const root = document.documentElement;
+  const btn = document.querySelector(".theme-toggle");
+  const icon = () => (btn.textContent = root.dataset.theme === "dark" ? "☀" : "☾");
 
   btn.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("theme", next);
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
     icon();
   });
-
   icon();
+
+  // --- highlight the nav link for the section in view ---
+  const links = [...document.querySelectorAll(".site-nav a.nav-link")];
+  const sections = links.map((l) => document.querySelector(l.getAttribute("href")));
+
+  let ticking = false;
+  let current = -1;
+  function update() {
+    ticking = false;
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    let i = 0;
+    if (atBottom) {
+      i = sections.length - 1;
+    } else {
+      const line = window.innerHeight * 0.35;
+      sections.forEach((s, k) => {
+        if (s.getBoundingClientRect().top <= line) i = k;
+      });
+    }
+    if (i === current) return;
+    current = i;
+    links.forEach((l, k) => l.classList.toggle("active", k === i));
+
+    // keep the active link visible in the scrollable mobile nav
+    const ul = links[i].closest("ul");
+    if (ul.scrollWidth > ul.clientWidth) {
+      const a = links[i].getBoundingClientRect();
+      const u = ul.getBoundingClientRect();
+      const target = ul.scrollLeft + (a.left - u.left) - (u.width - a.width) / 2;
+      ul.scrollTo({ left: target, behavior: "smooth" });
+    }
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 })();
