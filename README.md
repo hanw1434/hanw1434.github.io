@@ -7,7 +7,7 @@ A single-page portfolio with warm neutral colors, oversized typography, a square
 - `index.html`: all content, in Home → About → Education → Projects → Hobbies → Contact order.
 - `css/style.css`: responsive layout, reusable project styles, and light/dark CSS color variables.
 - `js/nav.js`: persisted theme selection, system preference tracking, and active-section navigation (`aria-current`).
-- `favicon.svg`: the monogram favicon.
+- `favicon.svg` and `favicon.ico`: the monogram and legacy-browser favicon fallback.
 - `about.html` → `index.html#about`
 - `projects.html` → `index.html#projects`
 - `resume.html` → `index.html#education`
