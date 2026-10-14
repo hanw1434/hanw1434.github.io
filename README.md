@@ -1,6 +1,6 @@
 # Han Wu — personal website
 
-A single-page portfolio with warm oatmeal colors and tall Barlow Condensed headlines. The hero focuses on typography, and the header contains only navigation and the theme control. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
+A single-page portfolio with warm oatmeal colors and restrained, light-weight Barlow Condensed headlines. The hero focuses on typography, and the header contains only navigation and the theme control. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
 
 ## Structure
 
@@ -33,6 +33,8 @@ Keep the section IDs and headings so navigation and legacy links continue workin
 For About and Hobbies, add real `<p>` elements inside the corresponding `.section-body.prose`. The text column and paragraph spacing are already styled.
 
 For Projects, add `<article class="project-card">` elements inside `#projects .project-grid`. Each card can contain an `<h3>` title, a `<p>` description, a `<ul class="tags">` with `<li>` technology names, and an `<a>` with the real project URL. The existing grid uses two columns on desktop and one on mobile. No placeholder cards are shipped.
+
+Coursework and extracurriculars use simple lists. Preserve the full organization name and its acronym when updating a club entry.
 
 For schools and awards, follow the existing semantic article/list markup. Preserve award ordering from newest to oldest and retain a visible year on each entry.
 

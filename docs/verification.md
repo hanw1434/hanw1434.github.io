@@ -16,7 +16,7 @@ Verified in Chrome on October 14, 2026. The site is buildless static HTML/CSS/JS
 
 ## Text contrast
 
-All unique rendered text/background pairs were read from computed browser styles and checked using WCAG relative luminance. Decorative SVG, swatches, and ornaments are excluded.
+Rendered text/background pairs and reusable surface styles were checked using WCAG relative luminance. The list revision uses primary, muted, and accent text directly on the page background; all retain passing contrast. Decorative swatches and ornaments are excluded.
 
 | Theme | Text | Background | Ratio |
 | --- | --- | --- | --- |
@@ -37,6 +37,12 @@ All unique rendered text/background pairs were read from computed browser styles
 
 After the oatmeal palette revision, primary-button hover and future project links use the deeper accent. All rendered text pairs and button hover states meet 4.5:1. The hero illustration and corner logo are removed. Navigation and no-overflow checks were repeated after changing the fonts and phone header.
 
+The latest size revision reduces the main heading to 116px maximum on desktop and 64–96px on phones, uses regular weight (400), and tightens hero spacing. Desktop and phone captures were refreshed in both themes; navigation and overflow were rechecked.
+
 ## Screenshots
 
 Viewport and full-page captures for desktop light, desktop dark, phone light, and phone dark are in `docs/screenshots/`.
+
+## Club name sources
+
+The three abbreviated entries now include their full names, retaining the supplied acronyms. Names were checked against [AI Safety Student Team](https://aisst.ai/mission), [Harvard Undergraduate Sports Analysis Collective](https://harvardsportsanalysis.org/), and [Harvard Undergraduate Data Analytics Group](https://harvardanalytics.org/). Other club names are unchanged. Coursework and clubs use semantic bulleted lists, checked for wrapping on phones.

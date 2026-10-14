@@ -37,10 +37,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 .sun-icon { display: none; }
 html[data-theme="dark"] .sun-icon { display: block; }
 html[data-theme="dark"] .moon-icon { display: none; }
-.hero { padding-top: 96px; padding-bottom: 34px; }
+.hero { padding-top: 64px; padding-bottom: 28px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
 .status-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
-h1 { margin: 24px 0 32px -5px; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: clamp(140px, 22vw, 280px); line-height: 1; font-weight: 500; letter-spacing: -.025em; white-space: nowrap; }
+h1 { margin: 20px 0 26px -2px; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: clamp(80px, 9vw, 116px); line-height: 1.05; font-weight: 400; letter-spacing: -.025em; white-space: nowrap; }
 .name-period { color: var(--accent); }
 .tagline { max-width: 350px; font-size: 16px; color: var(--text-muted); line-height: 1.8; }
 .cta-row { display: flex; align-items: center; gap: 12px; margin-top: 34px; }
@@ -50,14 +50,14 @@ h1 { margin: 24px 0 32px -5px; font-family: "Barlow Condensed", "Arial Narrow", 
 .primary:hover { background: var(--accent); border-color: var(--accent); }
 .secondary { border: 1px solid var(--border); }
 .secondary:hover { background: var(--surface-2); border-color: var(--text-muted); }
-.hero-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 76px; }
+.hero-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; }
 .down-mark { font-size: 22px; color: var(--text-muted); }
 .swatches { display: flex; }.swatches i { width: 18px; height: 18px; background: var(--sw-1); border: 1px solid var(--border); }
 .swatches i:nth-child(2) { background: var(--sw-2); }.swatches i:nth-child(3) { background: var(--sw-3); }.swatches i:nth-child(4) { background: var(--sw-4); }.swatches i:nth-child(5) { background: var(--sw-5); }
 .section { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 56px; border-top: 1px solid var(--border); padding: 64px 0; }
 .section-head { align-self: start; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .section-number { color: var(--accent); font-size: 10px; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
-h2 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -.01em; line-height: 1.2; }
+h2 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: 36px; font-weight: 400; letter-spacing: -.01em; line-height: 1.2; }
 .empty-section { min-height: 208px; }
 .section-body { min-width: 0; }
 .prose p { max-width: 640px; margin-bottom: 20px; color: var(--text-muted); font-size: 16px; }
@@ -70,10 +70,12 @@ h2 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: 44p
 .school h4 { font-size: 25px; font-weight: 500; letter-spacing: -.045em; margin-bottom: 9px; line-height: 1.25; }
 .school p { color: var(--text-muted); font-size: 12px; max-width: 420px; line-height: 1.8; }
 .school .date { font-size: 10px; white-space: nowrap; padding-top: 4px; }
-.course-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-.course-grid li { padding: 24px; min-height: 132px; background: var(--surface); border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
-.course-grid strong { font-weight: 500; font-size: 18px; letter-spacing: -.03em; }
-.course-description { display: block; font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-top: 10px; max-width: 230px; }
+.course-description { color: var(--text-muted); }
+.course-list, .club-list { list-style: disc; padding-left: 19px; }
+.course-list li, .club-list li { padding-left: 3px; margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+.course-list li::marker, .club-list li::marker { color: var(--accent); font-size: 10px; }
+.course-list strong { font-weight: 500; }
+.club-acronym { color: var(--text-muted); }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags li { padding: 7px 12px; background: var(--surface-2); color: var(--text); font-size: 10px; line-height: 1.5; }
 .award-list { border-top: 1px solid var(--border); }
@@ -97,12 +99,12 @@ h2 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: 44p
 .contact-list a:hover .contact-value { color: var(--accent); }.contact-list a:hover .contact-arrow { transform: translate(3px, -3px); }
 .site-footer { border-top: 1px solid var(--border); display: flex; align-items: center; gap: 32px; min-height: 104px; color: var(--text-muted); font-size: 10px; }
 .site-footer p:first-child { margin-right: auto; }.back-to-top { color: var(--text); display: grid; place-items: center; width: 44px; height: 44px; font-size: 20px; }
-@media (min-width: 1600px) { .hero { padding-top: 120px; padding-bottom: 44px; } }
+@media (min-width: 1600px) { .hero { padding-top: 76px; } }
 @media (max-width: 1000px) {
   .wrap { width: calc(100% - 64px); }.nav-links { gap: 20px; }
-  .hero { padding-top: 76px; }h1 { font-size: 22vw; }
+  .hero { padding-top: 56px; }
   .section { grid-template-columns: 190px minmax(0, 1fr); gap: 32px; }
-  h2 { font-size: 38px; }.school { grid-template-columns: 1fr; gap: 6px; }.school .date { padding-top: 0; }.button { padding-inline: 14px; gap: 16px; }
+  h2 { font-size: 34px; }.school { grid-template-columns: 1fr; gap: 6px; }.school .date { padding-top: 0; }.button { padding-inline: 14px; gap: 16px; }
 }
 @media (max-width: 680px) {
   :root { --nav-height: 76px; }.wrap { width: calc(100% - 40px); }
@@ -110,14 +112,14 @@ h2 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-size: 44p
   .theme-toggle { width: 34px; height: 34px; flex: none; }
   .nav-inner nav { flex: 1; min-width: 0; }.nav-links { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
   .nav-link { text-align: center; font-size: 10px; padding: 19px 0 16px; }.nav-link::after { bottom: 0; left: 8px; right: 8px; }
-  .hero { padding-top: 58px; }.eyebrow { font-size: 9px; }
-  h1 { font-size: clamp(110px, 32vw, 200px); margin: 20px 0 26px -2px; }.tagline { font-size: 14px; max-width: 310px; }
+  .hero { padding-top: 40px; }.eyebrow { font-size: 9px; }
+  h1 { font-size: clamp(64px, 20vw, 96px); margin: 18px 0 22px -1px; }.tagline { font-size: 14px; max-width: 310px; }
   .cta-row { margin-top: 25px; gap: 10px; }.button { font-size: 10px; padding-inline: 16px; gap: 20px; }
-  .hero-foot { margin-top: 52px; }
+  .hero-foot { margin-top: 32px; }
   .section { grid-template-columns: 1fr; padding: 38px 0; gap: 32px; }.section-head { flex-direction: row; align-items: baseline; gap: 18px; }
-  .section-number { font-size: 9px; }h2 { font-size: 34px; }.empty-section { min-height: 152px; gap: 0; }
+  .section-number { font-size: 9px; }h2 { font-size: 30px; }.empty-section { min-height: 152px; gap: 0; }
   .education-section { padding-bottom: 48px; }.school h4 { font-size: 25px; }.school p { font-size: 12px; }.school .date { margin-top: 5px; font-size: 10px; }
-  .education-group + .education-group { margin-top: 36px; }.course-grid li { padding: 18px; min-height: 150px; }.course-grid strong { font-size: 16px; }.course-description { font-size: 11px; }
+  .education-group + .education-group { margin-top: 36px; }.course-list li, .club-list li { font-size: 13px; }
   .award-list h4 { font-size: 12px; }.award-list p { font-size: 11px; }.award-list li { gap: 16px; }.project-grid { grid-template-columns: 1fr; }
   .contact-section { padding-bottom: 48px; }.contact-list a { grid-template-columns: minmax(0, 1fr) 20px; gap: 2px 12px; padding: 15px 0; }
   .contact-label { grid-column: 1; font-size: 9px; }.contact-value { grid-column: 1; font-size: 16px; }.contact-arrow { grid-column: 2; grid-row: 1 / 3; }
