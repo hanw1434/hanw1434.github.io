@@ -1,6 +1,6 @@
 # Han Wu — personal website
 
-A single-page portfolio with warm neutral colors, oversized typography, a square monogram, and a static mathematical wireframe. Light and dark themes retain the original site's palette. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
+A single-page portfolio with warm oatmeal colors and tall Barlow Condensed headlines. The hero focuses on typography, and the header contains only navigation and the theme control. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
 
 ## Structure
 
@@ -38,4 +38,4 @@ For schools and awards, follow the existing semantic article/list markup. Preser
 
 ## Accessibility and performance
 
-Semantic landmarks, a skip link, visible keyboard focus, named controls, and an accessible active-location indicator are included. Navigation remains fully visible at phone widths. Reduced-motion preferences disable smooth scrolling and transitions. The mathematical illustration is static inline SVG and hidden from assistive technology. Text uses only `--text`, `--text-muted`, or `--accent` on contrast-checked backgrounds; swatches and `--accent-soft` are decorative only. Inter loads from Google Fonts with `display=swap` and a system-font fallback.
+Semantic landmarks, a skip link, visible keyboard focus, named controls, and an accessible active-location indicator are included. Navigation remains fully visible at phone widths. Reduced-motion preferences disable smooth scrolling and transitions. Text uses only `--text`, `--text-muted`, or `--accent` on contrast-checked backgrounds; swatches and `--accent-soft` are decorative only. Barlow and Barlow Condensed load from Google Fonts with `display=swap` and a system-font fallback.

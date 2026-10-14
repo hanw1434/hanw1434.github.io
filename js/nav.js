@@ -9,7 +9,7 @@
     const dark = root.dataset.theme === 'dark';
     toggle.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} mode`);
     toggle.setAttribute('aria-pressed', String(dark));
-    document.querySelector('meta[name="theme-color"]').content = dark ? '#1b1a18' : '#f6f3ee';
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#1b1a18' : '#eae2d6';
   }
   toggle.addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
