@@ -1,6 +1,6 @@
 # Han Wu — personal website
 
-A single-page portfolio with warm oatmeal colors and restrained, light-weight Barlow Condensed headlines. The hero focuses on typography, and the header contains only navigation and the theme control. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
+A single-page portfolio with warm oatmeal colors and restrained, light-weight Roboto headlines. The hero focuses on typography, and the header contains only navigation and the theme control. About, Projects, and Hobbies intentionally contain only their headings until real content is added.
 
 ## Structure
 
@@ -38,6 +38,8 @@ Coursework and extracurriculars use simple lists. Preserve the full organization
 
 For schools and awards, follow the existing semantic article/list markup. Preserve award ordering from newest to oldest and retain a visible year on each entry.
 
+The email is displayed as `han.wu.2718 [at] gmail [dot] com` as plain text, without a `mailto:` link.
+
 ## Accessibility and performance
 
-Semantic landmarks, a skip link, visible keyboard focus, named controls, and an accessible active-location indicator are included. Navigation remains fully visible at phone widths. Reduced-motion preferences disable smooth scrolling and transitions. Text uses only `--text`, `--text-muted`, or `--accent` on contrast-checked backgrounds; swatches and `--accent-soft` are decorative only. Barlow and Barlow Condensed load from Google Fonts with `display=swap` and a system-font fallback.
+Semantic landmarks, a skip link, visible keyboard focus, named controls, and an accessible active-location indicator are included. Navigation remains fully visible at phone widths. Reduced-motion preferences disable smooth scrolling and transitions. Text uses only `--text`, `--text-muted`, or `--accent` on contrast-checked backgrounds; swatches and `--accent-soft` are decorative only. Roboto loads from Google Fonts with `display=swap` and a system-font fallback.

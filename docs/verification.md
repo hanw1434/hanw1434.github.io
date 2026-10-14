@@ -37,7 +37,7 @@ Rendered text/background pairs and reusable surface styles were checked using WC
 
 After the oatmeal palette revision, primary-button hover and future project links use the deeper accent. All rendered text pairs and button hover states meet 4.5:1. The hero illustration and corner logo are removed. Navigation and no-overflow checks were repeated after changing the fonts and phone header.
 
-The latest size revision reduces the main heading to 116px maximum on desktop and 64–96px on phones, uses regular weight (400), and tightens hero spacing. Desktop and phone captures were refreshed in both themes; navigation and overflow were rechecked.
+The latest size revision reduces the main heading to 116px maximum on desktop and 64–96px on phones, uses regular weight (400), and tightens hero spacing. All site typography now uses Roboto; desktop and phone wrapping was checked again after the font switch. Desktop and phone captures were refreshed in both themes; navigation and overflow were rechecked.
 
 ## Screenshots
 
@@ -46,3 +46,7 @@ Viewport and full-page captures for desktop light, desktop dark, phone light, an
 ## Club name sources
 
 The three abbreviated entries now include their full names, retaining the supplied acronyms. Names were checked against [AI Safety Student Team](https://aisst.ai/mission), [Harvard Undergraduate Sports Analysis Collective](https://harvardsportsanalysis.org/), and [Harvard Undergraduate Data Analytics Group](https://harvardanalytics.org/). Other club names are unchanged. Coursework and clubs use semantic bulleted lists, checked for wrapping on phones.
+
+## Font and contact revision
+
+All typography uses Roboto, retaining the smaller, regular-weight headings. The email is written with `[at]` and `[dot]` as plain selectable text; no mail link or literal email address is embedded in the page HTML. Desktop and phone wrapping and section navigation were checked after this revision.
