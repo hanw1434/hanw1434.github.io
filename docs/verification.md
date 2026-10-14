@@ -50,3 +50,7 @@ The three abbreviated entries now include their full names, retaining the suppli
 ## Font and contact revision
 
 All typography uses Roboto, retaining the smaller, regular-weight headings. The email is written with `[at]` and `[dot]` as plain selectable text; no mail link or literal email address is embedded in the page HTML. Desktop and phone wrapping and section navigation were checked after this revision.
+
+## Readability revision
+
+Navigation uses 17px text on desktop and 14px text in two rows on phones. The Math + CS label uses 20px on desktop and 16px on phones. Main reading text is 16–18px, award details are 15px, dates and contact labels are 14px, and footer text is 13px. Heading size and regular weight remain restrained. Both themes, phone wrapping, section navigation, and header anchor offsets were checked after the size changes.
