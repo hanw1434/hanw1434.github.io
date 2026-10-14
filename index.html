@@ -1,183 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Math+CS student in Harvard Class of '30 with a background in math olympiads.">
+  <meta name="theme-color" content="#eae2d6">
   <title>Han Wu</title>
-  <meta name="description" content="Han Wu — Math+CS student at Harvard with a math olympiad background." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
-    (function () {
-      var t = null;
-      try { t = localStorage.getItem("theme"); } catch (e) {}
-      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.dataset.theme = t;
+    (() => {
+      let theme;
+      try { theme = localStorage.getItem('theme'); } catch (_) {}
+      document.documentElement.dataset.theme = theme === 'light' || theme === 'dark'
+        ? theme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     })();
   </script>
-  <link rel="stylesheet" href="css/style.css?v=8" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/nav.js" defer></script>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Sections">
-    <div class="nav-inner">
-      <a class="brand" href="#home">Han Wu</a>
-      <ul>
-        <li><a class="nav-link" href="#home">Home</a></li>
-        <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#education">Education</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#hobbies">Hobbies</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark/light mode"></button>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner wrap">
+      <nav aria-label="Sections">
+        <ul class="nav-links">
+          <li><a class="nav-link active" aria-current="location" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#education">Education</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#hobbies">Hobbies</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
     </div>
-  </nav>
-
-  <main>
-    <!-- ================= Home ================= -->
-    <section id="home" class="hero">
-      <div class="eyebrow">Math + CS · Harvard '30</div>
-      <h1>Han Wu</h1>
-      <p class="tagline">
-        Math+CS student in Harvard Class of '30 with a background in math
-        olympiads.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#projects">View my projects</a>
-        <a class="btn btn-outline" href="#contact">Get in touch</a>
-      </div>
-      <div class="swatches" aria-hidden="true">
-        <span style="--c: var(--sw-1)"></span>
-        <span style="--c: var(--sw-2)"></span>
-        <span style="--c: var(--sw-3)"></span>
-        <span style="--c: var(--sw-4)"></span>
-        <span style="--c: var(--sw-5)"></span>
-      </div>
-    </section>
-
-    <!-- ================= About ================= -->
-    <section id="about" class="section">
-      <header class="section-head">
-        <span class="num">01</span>
-        <h2>About</h2>
-      </header>
-      <div class="section-body">
-      </div>
-    </section>
-
-    <!-- ================= Education ================= -->
-    <section id="education" class="section">
-      <header class="section-head">
-        <span class="num">02</span>
-        <h2>Education</h2>
-      </header>
-      <div class="section-body">
-        <div class="entry">
-          <div class="entry-main">
-            <h3>Harvard University</h3>
-            <p>A.B. in Mathematics and Computer Science (joint concentration), Class of 2030 · Cambridge, MA</p>
-          </div>
-          <div class="entry-date">Sept 2026 – Present</div>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Math + CS · Harvard '30</p>
+        <h1 id="home-title">Han Wu<span class="name-period" aria-hidden="true">.</span></h1>
+        <p class="tagline">Math+CS student in Harvard Class of '30 with a background in math olympiads.</p>
+        <div class="cta-row">
+          <a class="button primary" href="#projects">View my projects <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="entry">
-          <div class="entry-main">
-            <h3>Southridge School</h3>
-            <p>Surrey, BC, Canada</p>
-          </div>
-          <div class="entry-date">Sept 2021 – June 2026</div>
-        </div>
-
-        <h3 class="subhead">Coursework · Fall 2026</h3>
-        <ul class="awards">
-          <li><span><strong>Math 55a</strong> — Studies in Algebra and Group Theory</span></li>
-          <li><span><strong>Stat 110</strong> — Introduction to Probability</span></li>
-          <li><span><strong>CS 1210</strong> — Introduction to Theoretical Computer Science</span></li>
-          <li><span><strong>Expos 20</strong></span></li>
-        </ul>
-
-        <h3 class="subhead">Extracurriculars</h3>
-        <div class="tags">
-          <span class="tag">AISST</span>
-          <span class="tag">HUSAC</span>
-          <span class="tag">HDAG</span>
-          <span class="tag">Harvard College Bowl</span>
-          <span class="tag">Harvard Poker Club</span>
-          <span class="tag">Chess Club</span>
-          <span class="tag">Board Games Club</span>
-        </div>
-
-        <h3 class="subhead">Honors &amp; Awards</h3>
-        <ul class="awards">
-          <li><span><strong>SPARC</strong> (Summer Program on Applied Rationality and Cognition) — Selected participant</span><span class="yr">2026</span></li>
-          <li><span><strong>Canadian Mathematical Olympiad</strong> — 2nd quartile (15/35)</span><span class="yr">2026</span></li>
-          <li><span><strong>Canada/USA Mathcamp</strong> — Selected participant</span><span class="yr">2025</span></li>
-          <li><span><strong>CEMC Euclid Contest</strong> — Winner, Group I, Top 6 in Canada</span><span class="yr">2025</span></li>
-          <li><span><strong>Asian Pacific Mathematics Olympiad</strong> — Rank 15 in Canada</span><span class="yr">2025</span></li>
-          <li><span><strong>Canadian Mathematical Olympiad</strong> — 2nd quartile (8/35)</span><span class="yr">2025</span></li>
-          <li><span><strong>Canadian Open Mathematics Challenge</strong> — National Rank 3, Grade 11 Division</span><span class="yr">2024</span></li>
-        </ul>
       </div>
+      <div class="hero-foot" aria-hidden="true"><span class="down-mark">↓</span><div class="swatches"><i></i><i></i><i></i><i></i><i></i></div></div>
     </section>
-
-    <!-- ================= Projects ================= -->
-    <section id="projects" class="section">
-      <header class="section-head">
-        <span class="num">03</span>
-        <h2>Projects</h2>
-      </header>
+    <section id="about" class="section empty-section" aria-labelledby="about-title">
+      <header class="section-head"><span class="section-number" aria-hidden="true">01 /</span><h2 id="about-title">About</h2></header>
+      <div class="section-body prose"><!-- Add About paragraphs here. --></div>
+    </section>
+    <section id="education" class="section education-section" aria-labelledby="education-title">
+      <header class="section-head"><span class="section-number" aria-hidden="true">02 /</span><h2 id="education-title">Education</h2></header>
       <div class="section-body">
+        <div class="education-group schools">
+          <h3 class="subhead">Schools</h3>
+          <article class="school"><div><h4>Harvard University</h4><p>A.B. in Mathematics and Computer Science (joint concentration), Class of 2030 · Cambridge, MA</p></div><p class="date">Sept 2026 – Present</p></article>
+          <article class="school"><div><h4>Southridge School</h4><p>Surrey, BC, Canada</p></div><p class="date">Sept 2021 – June 2026</p></article>
+        </div>
+        <div class="education-group coursework">
+          <h3 class="subhead">Coursework <span>— Fall 2026</span></h3>
+          <ul class="course-list">
+            <li><strong>Math 55a</strong><span class="course-description"> — Studies in Algebra and Group Theory</span></li>
+            <li><strong>Stat 110</strong><span class="course-description"> — Introduction to Probability</span></li>
+            <li><strong>CS 1210</strong><span class="course-description"> — Introduction to Theoretical Computer Science</span></li>
+            <li><strong>Expos 20</strong></li>
+          </ul>
+        </div>
+        <div class="education-group extracurriculars"><h3 class="subhead">Extracurriculars</h3><ul class="club-list"><li>AI Safety Student Team <span class="club-acronym">(AISST)</span></li><li>Harvard Undergraduate Sports Analysis Collective <span class="club-acronym">(HUSAC)</span></li><li>Harvard Undergraduate Data Analytics Group <span class="club-acronym">(HDAG)</span></li><li>Harvard College Bowl</li><li>Harvard Poker Club</li><li>Chess Club</li><li>Board Games Club</li></ul></div>
+        <div class="education-group honors">
+          <h3 class="subhead">Honors &amp; Awards</h3>
+          <ul class="award-list">
+            <li><div><h4>SPARC (Summer Program on Applied Rationality and Cognition)</h4><p>Selected participant</p></div><span class="year">2026</span></li>
+            <li><div><h4>Canadian Mathematical Olympiad</h4><p>2nd quartile (15/35)</p></div><span class="year">2026</span></li>
+            <li><div><h4>Canada/USA Mathcamp</h4><p>Selected participant</p></div><span class="year">2025</span></li>
+            <li><div><h4>CEMC Euclid Contest</h4><p>Winner, Group I, Top 6 in Canada</p></div><span class="year">2025</span></li>
+            <li><div><h4>Asian Pacific Mathematics Olympiad</h4><p>Rank 15 in Canada</p></div><span class="year">2025</span></li>
+            <li><div><h4>Canadian Mathematical Olympiad</h4><p>2nd quartile (8/35)</p></div><span class="year">2025</span></li>
+            <li><div><h4>Canadian Open Mathematics Challenge</h4><p>National Rank 3, Grade 11 Division</p></div><span class="year">2024</span></li>
+          </ul>
+        </div>
       </div>
     </section>
-
-    <!-- ================= Hobbies ================= -->
-    <section id="hobbies" class="section">
-      <header class="section-head">
-        <span class="num">04</span>
-        <h2>Hobbies</h2>
-      </header>
-      <div class="section-body">
-      </div>
+    <section id="projects" class="section empty-section" aria-labelledby="projects-title">
+      <header class="section-head"><span class="section-number" aria-hidden="true">03 /</span><h2 id="projects-title">Projects</h2></header>
+      <div class="section-body project-grid"><!-- Add project articles here; see README.md. --></div>
     </section>
-
-    <!-- ================= Contact ================= -->
-    <section id="contact" class="section">
-      <header class="section-head">
-        <span class="num">05</span>
-        <h2>Contact</h2>
-      </header>
+    <section id="hobbies" class="section empty-section" aria-labelledby="hobbies-title">
+      <header class="section-head"><span class="section-number" aria-hidden="true">04 /</span><h2 id="hobbies-title">Hobbies</h2></header>
+      <div class="section-body prose"><!-- Add Hobbies paragraphs here. --></div>
+    </section>
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <header class="section-head"><span class="section-number" aria-hidden="true">05 /</span><h2 id="contact-title">Contact</h2></header>
       <div class="section-body">
         <ul class="contact-list">
-          <li>
-            <span class="label">Email</span>
-            <a href="mailto:han.wu.2718@gmail.com">han.wu.2718@gmail.com</a>
-          </li>
-          <li>
-            <span class="label">GitHub</span>
-            <a href="https://github.com/hanw1434">github.com/hanw1434</a>
-          </li>
-          <li>
-            <span class="label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/han-wu-/">linkedin.com/in/han-wu-</a>
-          </li>
-          <li>
-            <span class="label">Instagram</span>
-            <a href="https://www.instagram.com/hanw1434">@hanw1434</a>
-          </li>
-          <li>
-            <span class="label">Substack</span>
-            <a href="https://hanw1434.substack.com/">hanw1434.substack.com</a>
-          </li>
+          <li><div class="contact-row"><span class="contact-label">Email</span><span class="contact-value">han.wu.2718 [at] gmail [dot] com</span></div></li>
+          <li><a href="https://github.com/hanw1434"><span class="contact-label">GitHub</span><span class="contact-value">github.com/hanw1434</span><span class="contact-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/han-wu-/"><span class="contact-label">LinkedIn</span><span class="contact-value">linkedin.com/in/han-wu-</span><span class="contact-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/hanw1434"><span class="contact-label">Instagram</span><span class="contact-value">@hanw1434</span><span class="contact-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://hanw1434.substack.com/"><span class="contact-label">Substack</span><span class="contact-value">hanw1434.substack.com</span><span class="contact-arrow" aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div>© 2026 Han Wu</div>
-    <div class="disclaimer">Disclaimer: all text on this site is AI-generated.</div>
-  </footer>
-
-  <script src="js/nav.js?v=6"></script>
+  <footer class="site-footer wrap"><p>© 2026 Han Wu</p><p>Disclaimer: all text on this site is AI-generated.</p><a href="#home" class="back-to-top" aria-label="Back to home">↑</a></footer>
 </body>
 </html>
