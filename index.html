@@ -140,6 +140,8 @@ h3 { font-weight: 400; }
 .row .name { font-family: var(--font-display); letter-spacing: var(--tracking-display); line-height: 1.2; color: var(--color-ink); }
 .row .deg { margin-top: var(--space-xs); color: var(--color-ink-2); }
 .event__long { display: block; font-weight: 300; color: var(--color-muted); }
+.row > .desc { grid-column: 2 / -1; } /* runs over the year column, starting where every middle column starts */
+.row .name a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
 
 
 .clubs { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
@@ -171,7 +173,7 @@ h3 { font-weight: 400; }
 .profiles li { padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .profiles .k { display: block; font-size: var(--text-sm); font-weight: 400; color: var(--color-muted); }
 .profiles a { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; color: var(--color-ink); overflow-wrap: anywhere; text-decoration-color: var(--color-rule-2); transition: text-decoration-color var(--dur-short) var(--ease-out); }
-.profiles a:hover, .mast a:hover { text-decoration-color: var(--color-accent); }
+.profiles a:hover, .mast a:hover, .row .name a:hover { text-decoration-color: var(--color-accent); }
 
 /* footer: a mast, the wordmark over the page's links */
 .mast { margin-top: var(--section-gap-s); padding-block: var(--space-2xl) var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
@@ -189,6 +191,7 @@ h3 { font-weight: 400; }
   .row { grid-template-columns: minmax(0, 1fr) auto; }
   .row > :first-child { grid-column: 1 / -1; }
   .row > .when { text-align: right; }
+  .row > .desc { grid-column: 1 / -1; }
   .profiles { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -319,16 +322,16 @@ h3 { font-weight: 400; }
     <div class="container doc">
       <h2 id="projects-h">Projects</h2>
       <div class="doc__body">
-        <div class="rows">
-          <div class="row">
-            <div>
-              <p class="name">Club Constellation</p>
-              <p class="deg">A free, mobile-friendly guide to Harvard College student organizations. Search by interest, browse the clubs as a constellation where nearby dots share interests, and leave with a real way to join.</p>
-            </div>
-            <p>Concept and build plan</p>
-            <p class="when">Nov 2026</p>
-          </div>
-        </div>
+        <ul class="rows">
+          <li class="row">
+            <p class="name"><a href="https://harvard-rooms.vercel.app">Study Rooms Harvard</a></p>
+            <p class="desc">An unofficial web app for finding free Harvard Library study rooms.</p>
+          </li>
+          <li class="row">
+            <p class="name"><a href="https://hanw1434.github.io/club-constellation/">Club Constellation</a></p>
+            <p class="desc">Find Harvard student organizations by interest and see how to join each one.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
