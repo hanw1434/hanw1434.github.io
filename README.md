@@ -1,26 +1,19 @@
 # Personal Website
 
-My personal website, hosted on GitHub Pages.
+My personal website, hosted on GitHub Pages at https://hanw1434.github.io.
 
 ## Structure
 
-- `index.html` — the whole site: one page with Home, About, Education, Projects, Hobbies, and Contact sections
-- `css/style.css` — all styling (light/dark colors are CSS variables at the top)
-- `js/nav.js` — theme toggle and nav highlighting for the section in view
-- `about.html`, `projects.html`, `resume.html`, `substack.html` — redirects to the matching section, so old links still work
+- `index.html`: the whole site, one self-contained page with its styles inlined. Home (About me, Education, Experience), Projects, Hobbies and Contact.
+- `about.html`, `projects.html`, `resume.html`, `substack.html`: redirects to the matching section, so old links still work.
 
-## Adding a new section
+## Editing
 
-1. Add a `<section id="newsection" class="section">` to `index.html` (copy an existing one).
-2. Add a matching link to the nav in `index.html`:
-   ```html
-   <li><a class="nav-link" href="#newsection">New Section</a></li>
-   ```
-3. Commit and push — GitHub Pages redeploys automatically.
+Edit `index.html`, then commit and push; GitHub Pages redeploys automatically. Colors and fonts are CSS variables in `:root` inside the `<style>` block.
 
 ## Local preview
 
-Just open `index.html` in a browser, or run a local server:
+Open `index.html` in a browser, or run a local server:
 
 ```
 python -m http.server
