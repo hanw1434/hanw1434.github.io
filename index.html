@@ -11,10 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100,300;100,400;125,200&display=swap" rel="stylesheet">
 <style>
 /* Hallmark · shape: Long Document · genre: atmospheric · theme: midnight (by reference: the user's example sites) · job: hire · draw: 4790c9
- * hero: Settled · nav: floating pill, Home, Projects, Hobbies and Contact, Hobbies tagged wip · footer: mast · imagery: none · signature: none for now, the owner is still choosing what sits beside the name
+ * hero: Settled · nav: floating pill, Home, Projects, Hobbies and Contact · footer: mast · imagery: none · signature: none for now, the owner is still choosing what sits beside the name
  * axes: dark/grotesk-sans/cool · posture: committed · contrast: pass · fold: pass · copy: verbatim · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H3 E4 S5 R4 V4 · weakest: H, every result now sits at body size, newest first, at the owner’s request; the section heads and the year column carry the order */
-/* Hallmark · waive 77 · About me and Hobbies are thin on purpose · the owner asked for each as its own work-in-progress section until the writing exists; they take mass when filled */
+/* Hallmark · waive 77 · Projects is thin on purpose · it lists the two projects that exist and takes mass as it grows */
 /* Hallmark · waive 78 · section heads sit at 24 to 36px under an 88px name · the owner asked for thinner, smaller type across the page */
 /* Hallmark · waive 44c · the hero stops short of the fold · the owner asked for no summary under the name and for the hero to lead straight into the page */
 /* Hallmark · waive 79 · open space under the hero · it is the gap before About me, which starts on the first screen because the owner asked the hero to lead straight in */
@@ -102,7 +102,6 @@ h3 { font-weight: 400; }
 .pill .pill__act { background: var(--color-paper-3); color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule-2); }
 .pill .pill__act:hover { text-decoration-color: var(--color-accent); }
 /* a section still being written carries a dashed wip tag, in the nav and beside its content */
-.wip-tag { margin-left: var(--space-xs); padding: 0 var(--space-2xs); border: var(--rule-hair) dashed var(--color-rule-2); font-size: var(--text-xs); font-weight: 300; line-height: 1.5; color: var(--color-muted); }
 
 /* buttons: the theme's pair */
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 var(--space-lg); border: var(--rule-hair) solid transparent; border-radius: var(--radius-pill); font-size: var(--text-md); font-weight: 400; line-height: 1; color: var(--color-ink); text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
@@ -141,7 +140,9 @@ h3 { font-weight: 400; }
 .row .deg { margin-top: var(--space-xs); color: var(--color-ink-2); }
 .event__long { display: block; font-weight: 300; color: var(--color-muted); }
 .row > .desc { grid-column: 2 / -1; } /* runs over the year column, starting where every middle column starts */
-.row .name a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.row .name a, .hobby a { color: inherit; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.row .name a { display: inline-flex; align-items: center; min-height: 44px; }
+.row > .hobby { grid-column: 1 / -1; color: var(--color-ink); }
 
 
 .clubs { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; }
@@ -173,7 +174,7 @@ h3 { font-weight: 400; }
 .profiles li { padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .profiles .k { display: block; font-size: var(--text-sm); font-weight: 400; color: var(--color-muted); }
 .profiles a { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; color: var(--color-ink); overflow-wrap: anywhere; text-decoration-color: var(--color-rule-2); transition: text-decoration-color var(--dur-short) var(--ease-out); }
-.profiles a:hover, .mast a:hover, .row .name a:hover { text-decoration-color: var(--color-accent); }
+.profiles a:hover, .mast a:hover, .row .name a:hover, .hobby a:hover { text-decoration-color: var(--color-accent); }
 
 /* footer: a mast, the wordmark over the page's links */
 .mast { margin-top: var(--section-gap-s); padding-block: var(--space-2xl) var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
@@ -187,7 +188,6 @@ h3 { font-weight: 400; }
 }
 @media (max-width: 40rem) {
   .pill a { padding: 0 var(--space-xs); }
-  .pill .wip-tag { margin-left: var(--space-2xs); }
   .row { grid-template-columns: minmax(0, 1fr) auto; }
   .row > :first-child { grid-column: 1 / -1; }
   .row > .when { text-align: right; }
@@ -209,7 +209,7 @@ h3 { font-weight: 400; }
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#hobbies">Hobbies<span class="wip-tag"><span aria-hidden="true">wip</span><span class="visually-hidden">, work in progress</span></span></a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
     <li><a class="pill__act" href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -223,7 +223,7 @@ h3 { font-weight: 400; }
         <p class="lead">Math+CS student in Harvard Class of ’30 with a background in math olympiads.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#contact">Get in touch</a>
-          <a class="btn btn--secondary" href="https://github.com/hanw1434">View my projects</a>
+          <a class="btn btn--secondary" href="https://github.com/hanw1434" target="_blank" rel="noopener">View my projects<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
@@ -324,11 +324,11 @@ h3 { font-weight: 400; }
       <div class="doc__body">
         <ul class="rows">
           <li class="row">
-            <p class="name"><a href="https://harvard-rooms.vercel.app">Study Rooms Harvard</a></p>
+            <p class="name"><a href="https://harvard-rooms.vercel.app" target="_blank" rel="noopener">Study Rooms Harvard<span class="visually-hidden"> (opens in a new tab)</span></a></p>
             <p class="desc">An unofficial web app for finding free Harvard Library study rooms.</p>
           </li>
           <li class="row">
-            <p class="name"><a href="https://hanw1434.github.io/club-constellation/">Club Constellation</a></p>
+            <p class="name"><a href="https://hanw1434.github.io/club-constellation/" target="_blank" rel="noopener">Club Constellation<span class="visually-hidden"> (opens in a new tab)</span></a></p>
             <p class="desc">Find Harvard student organizations by interest and see how to join each one.</p>
           </li>
         </ul>
@@ -340,10 +340,13 @@ h3 { font-weight: 400; }
     <div class="container doc">
       <h2 id="hobbies-h">Hobbies</h2>
       <div class="doc__body">
-        <div class="wip-box">
-          <p class="wip">Work in progress</p>
-          <p>Hobbies will go here.</p>
-        </div>
+        <ul class="rows">
+          <li class="row"><p class="hobby">Playing football (soccer)</p></li>
+          <li class="row"><p class="hobby">Watching football, NBA, NFL and NHL<span class="event__long">Supporting Real Madrid, Tottenham, Vancouver Whitecaps and the Pittsburgh Penguins</span></p></li>
+          <li class="row"><p class="hobby"><a href="https://www.youtube.com/watch?v=Si5jAkq-rgM" target="_blank" rel="noopener">Trivia<span class="visually-hidden"> (opens in a new tab)</span></a> and geography</p></li>
+          <li class="row"><p class="hobby">Playing poker, chess, landlord and more</p></li>
+          <li class="row"><p class="hobby">Exploring Boston</p></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -354,10 +357,10 @@ h3 { font-weight: 400; }
       <div class="doc__body">
         <a class="email" href="mailto:han.wu.2718@gmail.com">han.wu.2718 <span class="at">[at]</span> gmail <span class="at">[dot]</span> com</a>
         <ul class="profiles">
-          <li><span class="k">GitHub</span><a href="https://github.com/hanw1434">github.com/hanw1434</a></li>
-          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/han-wu-/">linkedin.com/in/han-wu-</a></li>
-          <li><span class="k">Instagram</span><a href="https://www.instagram.com/hanw1434">@hanw1434</a></li>
-          <li><span class="k">Substack</span><a href="https://hanw1434.substack.com/">hanw1434.substack.com</a></li>
+          <li><span class="k">GitHub</span><a href="https://github.com/hanw1434" target="_blank" rel="noopener">github.com/hanw1434<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/han-wu-/" target="_blank" rel="noopener">linkedin.com/in/han-wu-<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><span class="k">Instagram</span><a href="https://www.instagram.com/hanw1434" target="_blank" rel="noopener">@hanw1434<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><span class="k">Substack</span><a href="https://hanw1434.substack.com/" target="_blank" rel="noopener">hanw1434.substack.com<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
       </div>
     </div>
